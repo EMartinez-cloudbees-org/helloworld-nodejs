@@ -5,7 +5,7 @@ pipeline {
     buildDiscarder(logRotator(numToKeepStr: '20'))
     skipDefaultCheckout true
   }
-  trigger {
+  triggers {
     eventTrigger simpleMatch('hello-api-deploy-event')
   }
   stages {
