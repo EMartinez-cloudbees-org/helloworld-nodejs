@@ -44,6 +44,22 @@ pipeline {
         echo "TODO - build and push image"
       }
     }
+    stage('Deploy') {
+      when {
+        // both of these conditions are only for the master branch
+        beforeAgent true
+        beforeInput true
+        branch 'master'
+      }
+      input {
+        // prompt the user
+        message "Press any key to continue with deployment."
+      }
+      steps {
+        // note that echo is not the same as message
+        echo "Continuing with deployment."
+      }
+    }    
     stage('Say Hello') {
       agent { label 'nodejs-app' }
       steps {
