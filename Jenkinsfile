@@ -15,7 +15,17 @@ pipeline {
           sh 'node --version'
         }
       }
-    }     
+    }    
+    stage('Build and Push Image') {
+      // skip this stage when branch is not master
+      when {
+        beforeAgent true
+        branch 'master'
+      }
+      steps {
+        echo "TODO - build and push image"
+      }
+    }
     stage('Say Hello') {
       agent { label 'nodejs-app' }
       steps {
