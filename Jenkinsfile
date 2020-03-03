@@ -51,6 +51,9 @@ pipeline {
         beforeInput true
         branch 'master'
       }
+      options {
+        timeout(time: 30, unit: 'SECONDS')
+      }
       input {
         // prompt the user
         message "Select 'proceed' to continue with deployment."
