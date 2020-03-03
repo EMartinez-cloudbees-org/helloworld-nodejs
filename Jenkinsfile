@@ -5,6 +5,9 @@ pipeline {
     buildDiscarder(logRotator(numToKeepStr: '20'))
     skipDefaultCheckout true
   }
+  trigger {
+    eventTrigger simpleMatch('hello-api-deploy-event')
+  }
   stages {
     stage('Test') {
       agent { label 'nodejs-app' }
