@@ -15,7 +15,7 @@ pipeline {
           sh 'node --version'
         }
       }
-    }    
+    } 
     stage('Build and Push Image') {
       // skip this stage when branch is not master
       when {
@@ -43,7 +43,8 @@ pipeline {
           sh 'node --version'
         }
       }
-    }        
+    } 
+    /*
     stage('Failing Stage') {
       agent { label 'nodejs-app' }
       steps {
@@ -52,6 +53,7 @@ pipeline {
           sh 'java -version'
         }
       }
-    }    
+    } 
+    */
   }
 }
