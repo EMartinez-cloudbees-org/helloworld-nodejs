@@ -53,7 +53,7 @@ pipeline {
       }
       input {
         // prompt the user
-        message "Press any key to continue with deployment."
+        message "Select 'proceed' to continue with deployment."
       }
       steps {
         // note that echo is not the same as message
