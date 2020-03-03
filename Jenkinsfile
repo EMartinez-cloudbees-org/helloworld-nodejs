@@ -15,6 +15,7 @@ pipeline {
           sh 'node --version'
         }
       }
+    }
     stage('Test K8s Agent') {
       agent { 
         kubernetes {
@@ -29,7 +30,7 @@ pipeline {
           sh 'node --version'
         }
       }
-    } } 
+    } 
     stage('Build and Push Image') {
       // skip this stage when branch is not master
       when {
