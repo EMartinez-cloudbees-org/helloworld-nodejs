@@ -15,7 +15,21 @@ pipeline {
           sh 'node --version'
         }
       }
-    } 
+    stage('Test K8s Agent') {
+      agent { 
+        kubernetes {
+          label 'nodejs-app-pod'
+          yamlFile 'nodejs-pod.yaml'
+        }
+      }
+      steps {
+        checkout scm
+        container('nodejs') {
+          echo 'Hello World show checkout!'   
+          sh 'node --version'
+        }
+      }
+    } } 
     stage('Build and Push Image') {
       // skip this stage when branch is not master
       when {
